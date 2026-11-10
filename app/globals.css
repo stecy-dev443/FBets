@@ -64,3 +64,17 @@
 .blackjack-table-3d{min-height:270px;border-radius:25%;gap:10px}.blackjack-hand{width:100%;text-align:center}.blackjack-hand small{font-size:10px;letter-spacing:2px;color:#d3e6d4;font-weight:900}.playing-cards{display:flex;justify-content:center;gap:8px;min-height:70px;padding:8px}.playing-card{width:48px;height:66px;display:grid;place-items:center;border-radius:6px;background:linear-gradient(145deg,#fff,#d9ded7);color:#172018;font-size:19px;font-weight:900;box-shadow:0 8px 13px #0008;transform:rotateY(-8deg) rotateX(5deg)}.blackjack-table-label{font-size:12px;font-weight:900;letter-spacing:4px;color:#d4c18a;text-shadow:0 2px 4px #000}.blackjack-controls{display:grid;grid-template-columns:1fr 1fr}.blackjack-controls .secondary-game-action{grid-column:1/-1;background:#314832;color:#e2f4d6}
 .treasure-wheel-stage{position:relative;width:240px;height:240px;margin:12px auto 0;perspective:800px}.treasure-wheel-3d{width:220px;height:220px;margin:auto;background:conic-gradient(#b83a32 0 16.66%,#d7b34d 16.66% 33.32%,#287b50 33.32% 49.98%,#4c5fa5 49.98% 66.64%,#9c4a91 66.64% 83.3%,#bd7134 83.3%);transform:rotateX(12deg);box-shadow:0 20px 28px #000a,inset 0 0 0 5px #ffe0a0}.wheel-face{position:absolute;inset:0;border-radius:50%;display:grid;grid-template-columns:1fr 1fr;place-items:center;color:white;font-size:10px;font-weight:900;text-shadow:0 2px 3px #000;transform:rotate(-15deg)}.wheel-pointer{position:absolute;z-index:2;top:-4px;left:calc(50% - 13px);font-size:27px;color:#fff2a4;text-shadow:0 3px 7px #000}.treasure-hub{width:62px;height:62px;font-size:18px}.fullscreen-game-content{perspective:1200px}
 @media(max-width:680px){.roulette-table-3d,.blackjack-table-3d{min-height:205px;padding:18px 12px;border-width:7px}.roulette-wheel-3d{width:175px;height:175px}.treasure-wheel-stage{transform:scale(.9);margin-top:0}.treasure-wheel-3d{width:195px;height:195px}.blackjack-table-3d{border-radius:22%}.playing-card{width:40px;height:58px}.casino-controls{margin-top:12px}}
+
+
+/* Casino controls polish */
+.chip-selector{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:2px 0 5px}
+.chip{width:48px;height:48px;border-radius:50%;border:3px dashed #e4d5a5;background:radial-gradient(circle at 35% 25%,#fff2c5,#b88a42 70%);color:#241a0d;font-size:12px;font-weight:900;box-shadow:0 5px 10px #0008,inset 0 0 0 3px #775323;transition:transform .18s,box-shadow .18s}
+.chip:hover{transform:translateY(-4px) scale(1.06)}
+.chip.selected-chip{outline:3px solid #b8f18e;outline-offset:3px;transform:translateY(-3px);box-shadow:0 0 22px #a6f36a55}
+.casino-game{transition:transform .22s,border-color .22s,box-shadow .22s}
+.casino-game:hover{transform:translateY(-5px);border-color:#9cce77;box-shadow:0 16px 38px #0008,0 0 0 1px #9cce7720}
+.casino-game:focus-visible,.casino-choice:focus-visible,.chip:focus-visible,.casino-action:focus-visible{outline:3px solid #c7f69d;outline-offset:3px}
+.casino-choice{transition:filter .18s,transform .18s}
+.casino-choice:hover{filter:brightness(1.2);transform:translateY(-2px)}
+.casino-action{box-shadow:0 8px 24px #a6f36a24;letter-spacing:.6px}
+@media(max-width:680px){.chip{width:44px;height:44px}.chip-selector{gap:12px}}
