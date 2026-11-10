@@ -1,18 +1,157 @@
 {
- "name":"FBets Midnight Gold",
- "version":"1.0.0",
- "colorSpace":"OKLCH-derived sRGB hex ramps",
- "scales":{
-  "gold":{"50":"#fff9e9","100":"#fdf0c9","200":"#f7dfa2","300":"#efce78","400":"#e8c365","500":"#d9ad4d","600":"#b8903a","700":"#8e6c2c","800":"#654c25","900":"#403019","950":"#241a0e"},
-  "ink":{"50":"#f5f4f7","100":"#e5e3ea","200":"#cbc8d4","300":"#aaa6b6","400":"#898596","500":"#6c6879","600":"#514e5e","700":"#3b3947","800":"#282732","900":"#1a1a24","950":"#0b0b10"},
-  "emerald":{"50":"#e8fbf1","100":"#c9f5dc","200":"#9de9c1","300":"#6cdaa2","400":"#3dca83","500":"#20ad6b","600":"#168653","700":"#126944","800":"#104f36","900":"#0e3829","950":"#071f18"},
-  "ruby":{"50":"#fff0f1","100":"#ffd9dd","200":"#ffb3bd","300":"#f98595","400":"#e95b70","500":"#cf3c55","600":"#b3203a","700":"#8c1b30","800":"#681827","900":"#47131e","950":"#2a0b12"},
-  "blue":{"50":"#eef7ff","100":"#d9edff","200":"#b8dcff","300":"#8bc5ff","400":"#69b2ff","500":"#4798ed","600":"#3279c5","700":"#285d98","800":"#20456f","900":"#19304c","950":"#0d1c2d"}
- },
- "themes":{
-  "dark":{"background":"#0b0b10","surface1":"#12121a","surface2":"#1a1a24","surface3":"#232330","surface4":"#2c2c3b","border":"#393846","text":"#f6f1e7","textSecondary":"#c4c0ca","textMuted":"#9a98a6","textDisabled":"#706e7b","primary":"#e2b857","primaryPressed":"#b8903a","win":"#2fcb7e","loss":"#e95b70","live":"#69b2ff","warning":"#f0b95a","info":"#8bc5ff","suspended":"#8a8793"},
-  "light":{"background":"#f3f1eb","surface1":"#fffdf8","surface2":"#f7f3e9","surface3":"#eee8da","surface4":"#e4dccb","border":"#d6d0c3","text":"#24212a","textSecondary":"#514d58","textMuted":"#686572","textDisabled":"#85818d","primary":"#8e6c2c","primaryPressed":"#403019","win":"#147a4a","loss":"#a91e37","live":"#1e65a6","warning":"#87520b","info":"#205f94","suspended":"#696672"}
- },
- "gradients":{"gold":"linear-gradient(112deg,#f3dfa2 0%,#e2b857 48%,#b8903a 100%)","goldInkText":"#241a0e"},
- "effects":{"glassFill":"linear-gradient(145deg,rgba(35,35,48,.82),rgba(18,18,26,.88))","glassBorder":"rgba(243,223,162,.22)","liveGlow":"rgba(105,178,255,.18)","boostGlow":"rgba(226,184,87,.2)","filmGrainOpacity":0.035}
+  "name": "FBets Midnight Gold",
+  "version": "1.0.0",
+  "colorSpace": "OKLCH-derived sRGB hex ramps",
+  "scales": {
+    "gold": {
+      "50": "#fff9e9",
+      "100": "#fdf0c9",
+      "200": "#f7dfa2",
+      "300": "#efce78",
+      "400": "#e8c365",
+      "500": "#d9ad4d",
+      "600": "#b8903a",
+      "700": "#8e6c2c",
+      "800": "#654c25",
+      "900": "#403019",
+      "950": "#241a0e"
+    },
+    "ink": {
+      "50": "#f5f4f7",
+      "100": "#e5e3ea",
+      "200": "#cbc8d4",
+      "300": "#aaa6b6",
+      "400": "#898596",
+      "500": "#6c6879",
+      "600": "#514e5e",
+      "700": "#3b3947",
+      "800": "#282732",
+      "900": "#1a1a24",
+      "950": "#0b0b10"
+    },
+    "emerald": {
+      "50": "#e8fbf1",
+      "100": "#c9f5dc",
+      "200": "#9de9c1",
+      "300": "#6cdaa2",
+      "400": "#3dca83",
+      "500": "#20ad6b",
+      "600": "#168653",
+      "700": "#126944",
+      "800": "#104f36",
+      "900": "#0e3829",
+      "950": "#071f18"
+    },
+    "ruby": {
+      "50": "#fff0f1",
+      "100": "#ffd9dd",
+      "200": "#ffb3bd",
+      "300": "#f98595",
+      "400": "#e95b70",
+      "500": "#cf3c55",
+      "600": "#b3203a",
+      "700": "#8c1b30",
+      "800": "#681827",
+      "900": "#47131e",
+      "950": "#2a0b12"
+    },
+    "blue": {
+      "50": "#eef7ff",
+      "100": "#d9edff",
+      "200": "#b8dcff",
+      "300": "#8bc5ff",
+      "400": "#69b2ff",
+      "500": "#4798ed",
+      "600": "#3279c5",
+      "700": "#285d98",
+      "800": "#20456f",
+      "900": "#19304c",
+      "950": "#0d1c2d"
+    }
+  },
+  "themes": {
+    "dark": {
+      "background": "#0b0b10",
+      "surface1": "#12121a",
+      "surface2": "#1a1a24",
+      "surface3": "#232330",
+      "surface4": "#2c2c3b",
+      "border": "#393846",
+      "text": "#f6f1e7",
+      "textSecondary": "#c4c0ca",
+      "textMuted": "#9a98a6",
+      "textDisabled": "#706e7b",
+      "primary": "#e2b857",
+      "primaryPressed": "#b8903a",
+      "win": "#2fcb7e",
+      "loss": "#e95b70",
+      "live": "#69b2ff",
+      "warning": "#f0b95a",
+      "info": "#8bc5ff",
+      "suspended": "#8a8793"
+    },
+    "light": {
+      "background": "#f3f1eb",
+      "surface1": "#fffdf8",
+      "surface2": "#f7f3e9",
+      "surface3": "#eee8da",
+      "surface4": "#e4dccb",
+      "border": "#d6d0c3",
+      "text": "#24212a",
+      "textSecondary": "#514d58",
+      "textMuted": "#686572",
+      "textDisabled": "#85818d",
+      "primary": "#8e6c2c",
+      "primaryPressed": "#403019",
+      "win": "#147a4a",
+      "loss": "#a91e37",
+      "live": "#1e65a6",
+      "warning": "#87520b",
+      "info": "#205f94",
+      "suspended": "#696672"
+    }
+  },
+  "gradients": {
+    "gold": "linear-gradient(112deg,#f3dfa2 0%,#e2b857 48%,#b8903a 100%)",
+    "goldInkText": "#241a0e"
+  },
+  "effects": {
+    "glassFill": "linear-gradient(145deg,rgba(35,35,48,.82),rgba(18,18,26,.88))",
+    "glassBorder": "rgba(243,223,162,.22)",
+    "liveGlow": "rgba(105,178,255,.18)",
+    "boostGlow": "rgba(226,184,87,.2)",
+    "filmGrainOpacity": 0.035
+  },
+  "alternatePalettes": {
+    "neonNight": {
+      "background": "#100D1C",
+      "surface1": "#19152A",
+      "surface2": "#241D39",
+      "primary": "#D45BFF",
+      "accent": "#46E5EE",
+      "win": "#47D69A",
+      "loss": "#F06B91",
+      "live": "#65C8FF"
+    },
+    "arcticLight": {
+      "background": "#F4F8FB",
+      "surface1": "#FFFFFF",
+      "surface2": "#EAF0F6",
+      "primary": "#245BD7",
+      "accent": "#42C6A0",
+      "win": "#16865A",
+      "loss": "#B4233A",
+      "live": "#3279C5"
+    },
+    "royalEmerald": {
+      "background": "#090D0C",
+      "surface1": "#111A16",
+      "surface2": "#1B2921",
+      "primary": "#D9C18A",
+      "accent": "#0F4A35",
+      "win": "#45C78A",
+      "loss": "#D95A6B",
+      "live": "#75B8E8"
+    }
+  }
 }
