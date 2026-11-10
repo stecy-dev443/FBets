@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./flagship/flagship.css";
 import "./casino/casino.css";
+import "./flagship/midnight-gold.css";
 
 export const metadata: Metadata = {
   title: "FBets — The sharpest live experience",
