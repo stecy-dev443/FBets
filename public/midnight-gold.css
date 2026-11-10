@@ -1,0 +1,60 @@
+/* FBets Midnight Gold Design System v1.0
+   Core neutrals + semantic colors; scales are OKLCH-derived.
+*/
+:root{
+  color-scheme:dark;
+  --mg-gold-50:#fff9e9;--mg-gold-100:#fdf0c9;--mg-gold-200:#f7dfa2;--mg-gold-300:#efce78;--mg-gold-400:#e8c365;--mg-gold-500:#d9ad4d;--mg-gold-600:#b8903a;--mg-gold-700:#8e6c2c;--mg-gold-800:#654c25;--mg-gold-900:#403019;--mg-gold-950:#241a0e;
+  --mg-ink-50:#f5f4f7;--mg-ink-100:#e5e3ea;--mg-ink-200:#cbc8d4;--mg-ink-300:#aaa6b6;--mg-ink-400:#898596;--mg-ink-500:#6c6879;--mg-ink-600:#514e5e;--mg-ink-700:#3b3947;--mg-ink-800:#282732;--mg-ink-900:#1a1a24;--mg-ink-950:#0b0b10;
+  --mg-emerald-50:#e8fbf1;--mg-emerald-100:#c9f5dc;--mg-emerald-200:#9de9c1;--mg-emerald-300:#6cdaa2;--mg-emerald-400:#3dca83;--mg-emerald-500:#20ad6b;--mg-emerald-600:#168653;--mg-emerald-700:#126944;--mg-emerald-800:#104f36;--mg-emerald-900:#0e3829;--mg-emerald-950:#071f18;
+  --mg-ruby-50:#fff0f1;--mg-ruby-100:#ffd9dd;--mg-ruby-200:#ffb3bd;--mg-ruby-300:#f98595;--mg-ruby-400:#e95b70;--mg-ruby-500:#cf3c55;--mg-ruby-600:#b3203a;--mg-ruby-700:#8c1b30;--mg-ruby-800:#681827;--mg-ruby-900:#47131e;--mg-ruby-950:#2a0b12;
+  --mg-blue-50:#eef7ff;--mg-blue-100:#d9edff;--mg-blue-200:#b8dcff;--mg-blue-300:#8bc5ff;--mg-blue-400:#69b2ff;--mg-blue-500:#4798ed;--mg-blue-600:#3279c5;--mg-blue-700:#285d98;--mg-blue-800:#20456f;--mg-blue-900:#19304c;--mg-blue-950:#0d1c2d;
+  --mg-bg:#0b0b10;--mg-surface-1:#12121a;--mg-surface-2:#1a1a24;--mg-surface-3:#232330;--mg-surface-4:#2c2c3b;
+  --mg-border:#393846;--mg-border-strong:#625a48;
+  --mg-text:#f6f1e7;--mg-text-secondary:#c4c0ca;--mg-text-muted:#9a98a6;--mg-text-disabled:#706e7b;
+  --mg-primary:#e2b857;--mg-primary-hover:#f3dfa2;--mg-primary-pressed:#b8903a;
+  --mg-secondary:#24352f;--mg-win:#2fcb7e;--mg-loss:#e95b70;--mg-live:#69b2ff;--mg-boost:#e2b857;--mg-warning:#f0b95a;--mg-info:#8bc5ff;--mg-suspended:#8a8793;
+  --mg-gold-gradient:linear-gradient(112deg,#f3dfa2 0%,#e2b857 48%,#b8903a 100%);
+  --mg-glass:linear-gradient(145deg,rgba(35,35,48,.82),rgba(18,18,26,.88));
+  --mg-glass-border:1px solid rgba(243,223,162,.22);
+  --mg-live-glow:0 0 0 1px rgba(105,178,255,.28),0 0 18px rgba(105,178,255,.18);
+  --mg-boost-glow:0 0 0 1px rgba(226,184,87,.32),0 0 20px rgba(226,184,87,.2);
+  --mg-film-grain-opacity:.035;
+}
+[data-theme="light"]{
+ color-scheme:light;
+ --mg-bg:#f3f1eb;--mg-surface-1:#fffdf8;--mg-surface-2:#f7f3e9;--mg-surface-3:#eee8da;--mg-surface-4:#e4dccb;
+ --mg-border:#d6d0c3;--mg-border-strong:#a99b7c;
+ --mg-text:#24212a;--mg-text-secondary:#514d58;--mg-text-muted:#686572;--mg-text-disabled:#85818d;
+ --mg-primary:#8e6c2c;--mg-primary-hover:#654c25;--mg-primary-pressed:#403019;
+ --mg-secondary:#e1ebe4;--mg-win:#147a4a;--mg-loss:#a91e37;--mg-live:#1e65a6;--mg-boost:#8e6c2c;--mg-warning:#87520b;--mg-info:#205f94;--mg-suspended:#696672;
+ --mg-gold-gradient:linear-gradient(112deg,#f7dfa2 0%,#d9ad4d 48%,#8e6c2c 100%);
+ --mg-glass:linear-gradient(145deg,rgba(255,253,248,.88),rgba(247,243,233,.94));
+ --mg-glass-border:1px solid rgba(101,76,37,.22);
+ --mg-live-glow:0 0 0 1px rgba(30,101,166,.2),0 0 16px rgba(30,101,166,.12);
+ --mg-boost-glow:0 0 0 1px rgba(142,108,44,.22),0 0 16px rgba(142,108,44,.12);
+}
+.mg-btn-primary{background:var(--mg-gold-gradient);color:#241a0e;border:1px solid #b8903a;font-weight:800}
+.mg-btn-primary:hover{filter:brightness(1.06)}.mg-btn-primary:active{filter:brightness(.92);transform:translateY(1px)}
+.mg-btn-primary:focus-visible,.mg-odds:focus-visible{outline:3px solid var(--mg-info);outline-offset:3px}
+.mg-btn-secondary{background:var(--mg-surface-3);color:var(--mg-text);border:1px solid var(--mg-border)}
+.mg-btn-ghost{background:transparent;color:var(--mg-text-secondary);border:1px solid transparent}
+.mg-btn:disabled{background:var(--mg-surface-3);color:var(--mg-text-disabled);border-color:var(--mg-border);opacity:1;cursor:not-allowed}
+.mg-odds{background:var(--mg-surface-3);color:var(--mg-text);border:1px solid var(--mg-border)}
+.mg-odds[aria-pressed="true"]{background:#403019;color:#fff9e9;border:1px solid #e2b857}
+[data-theme="light"] .mg-odds[aria-pressed="true"]{background:#403019;color:#fff9e9}
+.mg-odds.is-up{box-shadow:inset 0 -2px #2fcb7e}.mg-odds.is-down{box-shadow:inset 0 -2px #e95b70}
+.mg-odds.is-suspended{background:var(--mg-surface-2);color:var(--mg-suspended);border-style:dashed;cursor:not-allowed}
+.mg-card{background:var(--mg-surface-2);border:1px solid var(--mg-border);color:var(--mg-text);border-radius:12px}
+.mg-bet-slip{background:var(--mg-surface-3);border:1px solid var(--mg-border-strong)}
+.mg-tab[aria-selected="true"]{color:var(--mg-primary);border-bottom:2px solid var(--mg-primary)}
+.mg-input{background:var(--mg-surface-1);color:var(--mg-text);border:1px solid var(--mg-border-strong)}
+.mg-input::placeholder{color:var(--mg-text-muted)}
+.mg-badge-live{background:#19304c;color:#d9edff}.mg-badge-new{background:#403019;color:#fff0c9}.mg-badge-hot{background:#47131e;color:#ffd9dd}
+.mg-toast-success{background:#0e3829;color:#e8fbf1;border:1px solid #3dca83}
+.mg-toast-error{background:#47131e;color:#fff0f1;border:1px solid #e95b70}
+.mg-toast-info{background:#19304c;color:#eef7ff;border:1px solid #69b2ff}
+.mg-responsible{background:#19251f;color:#d6e8dc;border:1px solid #42624e}
+[data-theme="light"] .mg-toast-success{background:#e8fbf1;color:#104f36;border-color:#168653}
+[data-theme="light"] .mg-toast-error{background:#fff0f1;color:#681827;border-color:#b3203a}
+[data-theme="light"] .mg-toast-info{background:#eef7ff;color:#19304c;border-color:#3279c5}
+[data-theme="light"] .mg-responsible{background:#e8f0e9;color:#234333;border-color:#9ab5a1}
