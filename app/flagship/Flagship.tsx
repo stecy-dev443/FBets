@@ -26,10 +26,10 @@ const nav: View[]=["Home","Live","My Bets","Promotions","Wallet"];
 const sports=["All sports","Football","Basketball","Tennis","Cricket","Rugby"];
 const IconBall=({sport}:{sport:string})=><span className="sport-glyph" aria-hidden="true">{sport==="Football"?"◉":sport==="Basketball"?"◍":sport==="Tennis"?"✳":sport==="Cricket"?"⌁":"✦"}</span>;
 
-const logoCodes:Record<string,string>={ARS:"soccer/500/ars",CHE:"soccer/500/che",BAR:"soccer/500/bar",ATM:"soccer/500/atm",RMA:"soccer/500/86",BAY:"soccer/500/len",LIV:"soccer/500/liv",MCI:"soccer/500/mci",INT:"soccer/500/int",MIL:"soccer/500/mil",BOS:"nba/500/bos",NYK:"nba/500/ny",RMB:"soccer/500/86",FCB:"soccer/500/bar"};
+const logoCodes:Record<string,string>={ARS:"https://a.espncdn.com/i/teamlogos/soccer/500/359.png",CHE:"https://a.espncdn.com/i/teamlogos/soccer/500/363.png",BAR:"https://a.espncdn.com/i/teamlogos/soccer/500/83.png",ATM:"https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",RMA:"https://a.espncdn.com/i/teamlogos/soccer/500/86.png",BAY:"https://a.espncdn.com/i/teamlogos/soccer/500/132.png",LIV:"https://a.espncdn.com/i/teamlogos/soccer/500/364.png",MCI:"https://a.espncdn.com/i/teamlogos/soccer/500/382.png",INT:"https://a.espncdn.com/i/teamlogos/soccer/500/110.png",MIL:"https://a.espncdn.com/i/teamlogos/soccer/500/103.png",BOS:"https://a.espncdn.com/i/teamlogos/nba/500/2.png",NYK:"https://a.espncdn.com/i/teamlogos/nba/500/18.png",RMB:"https://a.espncdn.com/i/teamlogos/soccer/500/86.png",FCB:"https://a.espncdn.com/i/teamlogos/soccer/500/83.png"};
 function TeamLogo({code,name,size="md"}:{code:string;name:string;size?:"sm"|"md"|"lg"}){
  const [failed,setFailed]=useState(false);const src=logoCodes[code];
- return <span className={"team-logo team-logo-"+size} aria-label={name} title={name}>{src&&!failed?<img src={"https://a.espncdn.com/i/teamlogos/"+src+".png"} alt={name} onError={()=>setFailed(true)}/>:<b>{code.slice(0,3)}</b>}</span>;
+ return <span className={"team-logo team-logo-"+size} aria-label={name} title={name}>{src&&!failed?<img src={src} alt={name} onError={()=>setFailed(true)}/>:<b>{code.slice(0,3)}</b>}</span>;
 }
 
 export default function Flagship(){
