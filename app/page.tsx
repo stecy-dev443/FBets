@@ -7,7 +7,14 @@ import {
   ShieldCheck, Sparkles, Ticket, Trophy, Wallet, X, Dices, Gamepad2, Spade, CircleDollarSign, UserRound
 } from "lucide-react";
 
-function blackjackTotal(cards: number[]) {\n  let total = 0; let aces = 0;\n  for (const card of cards) { if (card === 1) { total += 11; aces += 1; } else total += Math.min(card, 10); }\n  while (total > 21 && aces > 0) { total -= 10; aces -= 1; }\n  return total;\n}\n\ntype Match = {
+function blackjackTotal(cards: number[]) {
+  let total = 0; let aces = 0;
+  for (const card of cards) { if (card === 1) { total += 11; aces += 1; } else total += Math.min(card, 10); }
+  while (total > 21 && aces > 0) { total -= 10; aces -= 1; }
+  return total;
+}
+
+type Match = {
   id: number; sport: string; league: string; time: string; home: string; away: string;
   homeCode: string; awayCode: string; homeColor: string; awayColor: string;
   score?: string; status: "LIVE" | "UPCOMING"; markets: [string, string, string];
