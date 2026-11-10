@@ -5,7 +5,8 @@ import { Activity, ArrowDownRight, ArrowRight, ArrowUpRight, Bell, Bookmark, Che
 
 type View = "Home"|"Live"|"Match centre"|"My Bets"|"Promotions"|"Wallet"|"Profile"|"Help"|"Play controls"|"Design tokens"|"Component gallery"|"Search";
 type Match = {id:number;league:string;sport:string;home:string;away:string;homeCode:string;awayCode:string;minute:number;live:boolean;score:string;odds:number[];momentum:number;trend:number};
-const seed: Match[] = [
+type Seed = [string,string,string,string,string,string,number,boolean,string,number[],number,number];
+const seed: Seed[] = [
  ["Premier League","Football","Arsenal","Chelsea","ARS","CHE",67,true,"2–1",[1.74,3.65,4.8],68,1],
  ["La Liga","Football","Barcelona","Atletico Madrid","BAR","ATM",0,false,"—",[1.92,3.55,3.9],52,0],
  ["Champions League","Football","Real Madrid","Bayern Munich","RMA","BAY",0,false,"—",[2.15,3.4,3.05],49,-1],
