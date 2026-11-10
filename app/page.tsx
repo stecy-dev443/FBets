@@ -78,7 +78,7 @@ export default function Home() {
       <header className="topbar">
         <a className="brand" href="#" aria-label="FBets home"><span className="brand-mark">F</span><span>F<span className="brand-light">BETS</span></span><i>.</i></a>
         <nav className="main-nav">
-          {["Home", "Live", "Sports", "Casino", "Promotions"].map((item, i) => <button key={item} onClick={() => setActiveSection(item === "Casino" ? "casino" : "sports")} className={(item === "Casino" ? activeSection === "casino" : activeSection === "sports" && i === 0) ? "nav-link selected" : "nav-link"}>{item}{item === "Live" && <b className="live-dot" />}</button>)}
+          {["Home", "Live", "Sports", "Competitions", "Casino", "Promotions"].map(item => <button key={item} onClick={() => { setActiveSection(item.toLowerCase() === "home" ? "sports" : item.toLowerCase()); setMobileSlip(false); }} className={((item === "Home" || item === "Sports") ? activeSection === "sports" : activeSection === item.toLowerCase()) ? "nav-link selected" : "nav-link"}>{item}{item === "Live" && <b className="live-dot" />}</button>)}
         </nav>
         <div className="top-actions">
           <button className="icon-button search-trigger" aria-label="Search" onClick={() => setSearchOpen(!searchOpen)}><Search size={18} /></button>
@@ -96,8 +96,8 @@ export default function Home() {
           <div className="side-label">DISCOVER</div>
           <button onClick={() => { setSport("For you"); setActiveSection("sports"); }} className={activeSection === "sports" && sport === "For you" ? "side-item active" : "side-item"}><Sparkles size={17}/> For you</button>
           <button onClick={() => setActiveSection("casino")} className={activeSection === "casino" ? "side-item active" : "side-item"}><Dices size={17}/> Casino</button>
-          <button className="side-item"><Activity size={17}/> Live matches <span className="side-count">12</span></button>
-          <button className="side-item"><Trophy size={17}/> Competitions</button>
+          <button onClick={() => setActiveSection("live")} className={activeSection === "live" ? "side-item active" : "side-item"}><Activity size={17}/> Live matches <span className="side-count">1</span></button>
+          <button onClick={() => setActiveSection("competitions")} className={activeSection === "competitions" ? "side-item active" : "side-item"}><Trophy size={17}/> Competitions</button>
           <div className="side-divider" />
           <div className="side-label">SPORTS</div>
           {["Football", "Basketball", "Tennis", "Cricket", "Rugby"].map((s, i) => <button key={s} onClick={() => { setSport(s); setActiveSection("sports"); }} className={sport === s ? "side-item active" : "side-item"}><span className="sport-icon">{["⚽","🏀","🎾","🏏","🏉"][i]}</span>{s}</button>)}
@@ -106,6 +106,33 @@ export default function Home() {
         </aside>
 
         <section className="content">
+          {activeSection === "casino" && <>
+            <div className="casino-hero"><div><div className="eyebrow">FBETS DEMO ARCADE</div><h1>Step into the<br/><em>Casino Lounge.</em></h1><p className="welcome-copy">Explore arcade games with virtual credits only.</p><div className="casino-balance"><Wallet size={15}/><span>DEMO CREDITS</span><strong>KSh {demoBalance.toLocaleString("en-KE")}</strong></div></div><div className="casino-hero-art">🎰</div></div>
+            <div className="section-heading"><div><div className="eyebrow">THE ARCADE</div><h2>Explore games</h2></div></div>
+            <div className="casino-grid">
+              <button className="casino-game" onClick={() => setActiveGame("Lucky Sevens")}><div className="game-art slots-art"><span>7️⃣</span><span>💎</span><span>🍒</span></div><div className="game-info"><div><strong>Lucky Sevens</strong><small>Playable slot demo</small></div><b>PLAY NOW</b></div></button>
+              <button className="casino-game" onClick={() => setActiveGame("Roulette Lounge")}><div className="game-art roulette-art"><span>🎡</span></div><div className="game-info"><div><strong>Roulette Lounge</strong><small>Table game preview</small></div><b>PREVIEW</b></div></button>
+              <button className="casino-game" onClick={() => setActiveGame("Blackjack 21")}><div className="game-art blackjack-art"><span>♠</span><span>♥</span><span>21</span></div><div className="game-info"><div><strong>Blackjack 21</strong><small>Card game preview</small></div><b>PREVIEW</b></div></button>
+              <button className="casino-game" onClick={() => setActiveGame("Treasure Wheel")}><div className="game-art wheel-art"><span>🎯</span></div><div className="game-info"><div><strong>Treasure Wheel</strong><small>Game preview</small></div><b>PREVIEW</b></div></button>
+            </div>
+            <div className="casino-note"><ShieldCheck size={18}/><div><strong>Demo arcade only</strong><p>Virtual credits have no cash value. No real-money play or prizes.</p></div></div>
+          </>}
+          {activeSection === "live" && <>
+            <div className="section-heading"><div><div className="eyebrow"><span className="live-dot"/> LIVE CENTRE</div><h2>Live matches</h2><p className="welcome-copy">Illustrative demo data only. A real-time sports feed is not connected yet.</p></div></div>
+            <div className="match-list">{matches.filter(m=>m.status==="LIVE").map(m=><article className="match-card" key={m.id}><div className="match-meta"><span>{m.league}</span><span className="match-live">{m.time}</span></div><div className="match-main"><div className="teams"><div className="team"><strong>{m.home}</strong></div><div className="team"><strong>{m.away}</strong></div></div><div className="score-block"><strong>{m.score}</strong><span>DEMO SCORE</span></div><div className="odds-grid">{m.odds.map((o,i)=><button className="odd" key={i} onClick={()=>togglePick(m,i)}><span>{m.markets[i]}</span><strong>{o}</strong></button>)}</div></div></article>)}</div>
+            <div className="casino-note"><Activity size={18}/><div><strong>Live feed not connected</strong><p>Connect a sports-data provider for real-time scores, clocks and live odds.</p></div></div>
+          </>}
+          {activeSection === "competitions" && <>
+            <div className="section-heading"><div><div className="eyebrow">TOURNAMENT HUB</div><h2>Competitions</h2><p className="welcome-copy">Competitions represented in the demo fixtures.</p></div></div>
+            <div className="match-list">{Array.from(new Map(matches.map(m=>[m.league,m])).values()).map(m=><button key={m.league} className="match-card competition-row" onClick={()=>{setSport(m.sport);setActiveSection("sports");}}><div className="match-meta"><span>{m.sport.toUpperCase()}</span><span>DEMO</span></div><div className="competition-title"><Trophy size={20}/><strong>{m.league}</strong><ArrowRight size={16}/></div></button>)}</div>
+          </>}
+          {activeSection === "promotions" && <>
+            <div className="casino-hero"><div><div className="eyebrow">FBETS REWARDS</div><h1>Promotions &<br/><em>special offers.</em></h1><p className="welcome-copy">Featured campaigns for the FBets demo experience.</p></div><div className="casino-hero-art">🎁</div></div>
+            <div className="section-heading"><div><div className="eyebrow">FEATURED</div><h2>Current promotions</h2></div></div>
+            <div className="casino-grid"><article className="casino-game"><div className="game-art slots-art"><span>🎉</span><span>✨</span></div><div className="game-info"><div><strong>Welcome to FBets</strong><small>Explore the demo experience</small></div><b>DEMO</b></div></article><article className="casino-game"><div className="game-art roulette-art"><span>🏆</span></div><div className="game-info"><div><strong>Matchday spotlight</strong><small>Discover sample competitions</small></div><b>DEMO</b></div></article></div>
+            <div className="casino-note"><ShieldCheck size={18}/><div><strong>No real-money promotions</strong><p>These are informational tiles only. No bonus or cash reward is offered.</p></div></div>
+          </>}
+          {activeSection === "sports" && <>
           <div className="welcome-row"><div><div className="eyebrow"><span className="eyebrow-line"/> YOUR MATCHDAY STARTS HERE</div><h1>Every moment.<br/><em>Every possibility.</em></h1><p className="welcome-copy">The action is better when you're in the moment.</p></div><div className="hero-orbit"><div className="orbit-ring ring-one"/><div className="orbit-ring ring-two"/><div className="orbit-ball">⚽</div><span className="orbit-tag">MATCHDAY<br/><b>IS ON</b></span></div></div>
 
           <div className="sport-tabs" aria-label="Choose a sport">{sports.map(s => <button key={s} type="button" onClick={() => { setSport(s); setActiveSection("sports"); }} aria-pressed={sport === s} className={sport === s ? "sport-tab active" : "sport-tab"}>{s}</button>)}</div>
@@ -133,9 +160,10 @@ export default function Home() {
           </div>
           <div className="insight-strip"><div className="insight-icon"><Flame size={19}/></div><div><strong>Stay close to the action</strong><p>Explore match insights, form and head-to-head stats.</p></div><ArrowUpRight size={17}/></div>
           <footer id="responsible"><div className="footer-brand">FBETS<span>.</span></div><p>Entertainment-style sports demo. All fixtures and odds are illustrative.</p><div><ShieldCheck size={14}/> Play responsibly · Virtual stakes only</div></footer>
+          </>}
         </section>
 
-        <aside className="slip-column">
+        {activeSection === "sports" && <aside className="slip-column">
           <div className="slip-card">
             <div className="slip-head"><div><Ticket size={18}/><strong>Bet slip</strong><span className="slip-count">{slip.length}</span></div><button onClick={() => setSlip([])} disabled={!slip.length}>Clear all</button></div>
             <div className="slip-tabs"><span className="slip-tab-active">Single / Combo</span><span>System</span></div>
@@ -144,7 +172,7 @@ export default function Home() {
           </div>
           <div className="quick-note"><CircleHelp size={16}/><span>How does the demo work?</span><ChevronDown size={15}/></div>
           <div className="mini-promo"><div className="promo-spark"><Sparkles size={17}/></div><span>THE FBETS EXPERIENCE</span><strong>Made for the<br/><em>love of the game.</em></strong><div className="promo-lines"/></div>
-        </aside>
+        </aside>}
       </div>
       {activeGame && <div className="game-modal-backdrop" onClick={() => setActiveGame(null)}><div className="game-modal" onClick={e => e.stopPropagation()}><div className="drawer-head"><div><span className="eyebrow">FBETS DEMO ARCADE</span><h2>{activeGame}</h2></div><button onClick={() => setActiveGame(null)} aria-label="Close game"><X/></button></div>{activeGame === "Lucky Sevens" ? <><div className="slot-reels">{slotResult.map((symbol,i)=><span key={i}>{symbol}</span>)}</div><p className="slot-message">{slotMessage}</p><button className="place-button" disabled={slotBusy || demoBalance < 50} onClick={spinSlots}>{slotBusy ? "Spinning…" : "Spin · 50 demo credits"}</button></> : <div className="game-preview"><div>{activeGame === "Roulette Lounge" ? "🎡" : activeGame === "Blackjack 21" ? "🂡" : "🎯"}</div><strong>Coming to the demo lounge</strong><p>This game preview is not playable yet. Your demo credits are safe.</p></div>}<p className="slip-disclaimer">Virtual credits only · No real-money play or prizes</p></div></div>}
       <button className="mobile-slip" onClick={() => setMobileSlip(!mobileSlip)}><Ticket size={17}/> Bet slip <b>{slip.length}</b><span>Open <ArrowUpRight size={14}/></span></button>
