@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import AmbientCanvas from "../../components/AmbientCanvas";
 import { Activity, ArrowDownRight, ArrowRight, ArrowUpRight, Bell, Bookmark, Check, ChevronDown, CircleHelp, Clock3, Command, Compass, CreditCard, Crosshair, Gauge, Goal, Heart, Home, Info, Layers3, LifeBuoy, LockKeyhole, Menu, Minus, Moon, Plus, Search, Settings, ShieldCheck, SlidersHorizontal, Sparkles, Star, Sun, Ticket, TrendingUp, Trophy, UserRound, Wallet, X, Zap } from "lucide-react";
 
 type View = "Home"|"Live"|"Match centre"|"My Bets"|"Promotions"|"Wallet"|"Profile"|"Help"|"Play controls"|"Design tokens"|"Component gallery"|"Search";
@@ -35,6 +36,7 @@ export default function Flagship(){
  const openMatch=(m:Match)=>{setSelected(m);go("Match centre");};
  const placeDemo=()=>{if(!slip.length||Number(stake)<=0)return;setBetPlaced(true);setSlip([]);};
  return <main className={`fb-root ${theme==="light"?"light":""}`}>
+  <AmbientCanvas/>
   <div className="demo-ribbon"><ShieldCheck size={13}/> FBETS SIMULATION <span>·</span> Mock markets, virtual stakes, no deposits or cash payouts</div>
   <header className="fb-header"><button className="brand-lockup" onClick={()=>go("Home")} aria-label="FBets home"><span className="brand-symbol">F<span>.</span></span><span>FBETS<small>THE LIVE EXPERIENCE</small></span></button>
    <nav className="desktop-nav">{nav.map(n=><button key={n} className={view===n?"active":""} onClick={()=>go(n)}>{n==="Live"&&<i className="pulse"/>}{n}</button>)}<a className="casino-nav-link" href="/casino">Casino <span>♠</span></a></nav>
