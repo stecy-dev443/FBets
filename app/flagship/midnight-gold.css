@@ -37,3 +37,23 @@
 @media(max-width:700px){.fb-root .mobile-menu-btn{display:grid!important;place-items:center;min-width:44px;min-height:44px;border:1px solid var(--fb-hairline)!important;border-radius:10px;background:#232330!important;color:var(--fb-ivory)!important}.fb-root .app-grid{padding-bottom:calc(100px + env(safe-area-inset-bottom))!important}.fb-root .hero-panel{padding:21px 16px!important}.fb-root .hero-copy h1{font-size:49px!important}.fb-root .mobile-nav{top:calc(88px + env(safe-area-inset-top));right:12px;max-height:70vh;overflow:auto}.fb-root .ambient-switch{z-index:50!important;bottom:calc(78px + env(safe-area-inset-bottom))!important}}
 @media(max-width:540px){.fb-split-world{grid-template-columns:1fr}.fb-world{min-height:145px}}
 @media(prefers-reduced-motion:reduce){.fb-root *{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+
+/* Demo ticket history */
+.fb-root .demo-bet-list{display:grid;gap:14px}
+.fb-root .demo-bet-card{padding:18px;border:1px solid var(--fb-hairline);border-radius:16px;background:linear-gradient(145deg,#20202b,#14141c);box-shadow:0 14px 38px #0003}
+.fb-root .demo-bet-head,.fb-root .demo-bet-selection,.fb-root .demo-bet-summary{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.fb-root .demo-bet-head{padding-bottom:12px;border-bottom:1px solid var(--fb-hairline);font-size:11px;letter-spacing:.08em}
+.fb-root .demo-bet-selection{padding:13px 0;border-bottom:1px solid #ffffff0d}
+.fb-root .demo-bet-selection> b,.fb-root .demo-bet-selection small{display:block}
+.fb-root .demo-bet-selection small,.fb-root .demo-bet-date{color:var(--fb-muted);font-size:11px;margin-top:4px}
+.fb-root .demo-bet-selection strong{font-variant-numeric:tabular-nums;color:var(--fb-champagne)}
+.fb-root .demo-bet-summary{flex-wrap:wrap;padding:14px 0 8px}
+.fb-root .demo-bet-summary span{display:grid;gap:4px;color:var(--fb-muted);font-size:10px}
+.fb-root .demo-bet-summary b{color:var(--fb-ivory);font-size:13px}
+.fb-root .demo-bet-date{display:block;margin-top:8px}
+.fb-root .mobile-nav{z-index:90!important;isolation:isolate;pointer-events:auto}
+.fb-root .mobile-nav button,.fb-root .mobile-nav a,.fb-root .mobile-menu-btn,.fb-root .mobile-bottom button{position:relative;z-index:1;touch-action:manipulation}
+.fb-root .mobile-bottom{z-index:80!important;pointer-events:auto}
+.fb-root .ambient-switch{z-index:20!important}
+@media(max-width:700px){.fb-root .mobile-menu-btn{min-width:44px;min-height:44px;display:grid;place-items:center}.fb-root .mobile-nav{top:calc(26px + 62px + 8px);max-height:calc(100dvh - 170px);overflow-y:auto}.fb-root .demo-bet-card{padding:14px}.fb-root .demo-bet-summary{display:grid;grid-template-columns:1fr 1fr}.fb-root .demo-bet-summary span:last-child{grid-column:1/-1}}
