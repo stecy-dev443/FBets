@@ -8,17 +8,24 @@ import {
 } from "lucide-react";
 
 type Match = {
-  id: number; league: string; time: string; home: string; away: string;
+  id: number; sport: string; league: string; time: string; home: string; away: string;
   homeCode: string; awayCode: string; homeColor: string; awayColor: string;
   score?: string; status: "LIVE" | "UPCOMING"; markets: [string, string, string];
   odds: [string, string, string]; trend: "up" | "down" | "steady";
 };
 
 const matches: Match[] = [
-  { id: 1, league: "ENGLISH PREMIER LEAGUE", time: "LIVE · 64′", home: "Arsenal", away: "Chelsea", homeCode: "ARS", awayCode: "CHE", homeColor: "#e84b43", awayColor: "#2867b2", score: "2 : 1", status: "LIVE", markets: ["Arsenal", "Draw", "Chelsea"], odds: ["1.74", "3.65", "4.80"], trend: "up" },
-  { id: 2, league: "UEFA CHAMPIONS LEAGUE", time: "Today · 20:00", home: "Real Madrid", away: "Bayern Munich", homeCode: "RMA", awayCode: "FCB", homeColor: "#e6e5df", awayColor: "#d94a43", status: "UPCOMING", markets: ["Real Madrid", "Draw", "Bayern"], odds: ["2.15", "3.40", "3.05"], trend: "steady" },
-  { id: 3, league: "ENGLISH PREMIER LEAGUE", time: "Today · 21:00", home: "Liverpool", away: "Man City", homeCode: "LIV", awayCode: "MCI", homeColor: "#d73d42", awayColor: "#5a9bd8", status: "UPCOMING", markets: ["Liverpool", "Draw", "Man City"], odds: ["2.65", "3.50", "2.48"], trend: "down" },
-  { id: 4, league: "LA LIGA", time: "Tomorrow · 18:30", home: "Barcelona", away: "Atletico Madrid", homeCode: "BAR", awayCode: "ATM", homeColor: "#3976b9", awayColor: "#d34d4d", status: "UPCOMING", markets: ["Barcelona", "Draw", "Atletico"], odds: ["1.92", "3.55", "3.90"], trend: "up" }
+  { id: 1, sport: "Football", league: "ENGLISH PREMIER LEAGUE", time: "LIVE · 64′", home: "Arsenal", away: "Chelsea", homeCode: "ARS", awayCode: "CHE", homeColor: "#e84b43", awayColor: "#2867b2", score: "2 : 1", status: "LIVE", markets: ["Arsenal", "Draw", "Chelsea"], odds: ["1.74", "3.65", "4.80"], trend: "up" },
+  { id: 2, sport: "Football", league: "UEFA CHAMPIONS LEAGUE", time: "Today · 20:00", home: "Real Madrid", away: "Bayern Munich", homeCode: "RMA", awayCode: "FCB", homeColor: "#e6e5df", awayColor: "#d94a43", status: "UPCOMING", markets: ["Real Madrid", "Draw", "Bayern"], odds: ["2.15", "3.40", "3.05"], trend: "steady" },
+  { id: 3, sport: "Football", league: "ENGLISH PREMIER LEAGUE", time: "Today · 21:00", home: "Liverpool", away: "Man City", homeCode: "LIV", awayCode: "MCI", homeColor: "#d73d42", awayColor: "#5a9bd8", status: "UPCOMING", markets: ["Liverpool", "Draw", "Man City"], odds: ["2.65", "3.50", "2.48"], trend: "down" },
+  { id: 4, sport: "Football", league: "LA LIGA", time: "Tomorrow · 18:30", home: "Barcelona", away: "Atletico Madrid", homeCode: "BAR", awayCode: "ATM", homeColor: "#3976b9", awayColor: "#d34d4d", status: "UPCOMING", markets: ["Barcelona", "Draw", "Atletico"], odds: ["1.92", "3.55", "3.90"], trend: "up" }
+  ,{ id: 5, sport: "Basketball", league: "NBA · DEMO FIXTURE", time: "Today · 19:30", home: "Boston", away: "New York", homeCode: "BOS", awayCode: "NYK", homeColor: "#2876bd", awayColor: "#e87835", status: "UPCOMING", markets: ["Boston", "Draw", "New York"], odds: ["1.68", "—", "2.20"], trend: "steady" }
+  ,{ id: 6, sport: "Basketball", league: "EUROLEAGUE · DEMO FIXTURE", time: "Tomorrow · 20:00", home: "Real Madrid", away: "Barcelona", homeCode: "RMA", awayCode: "BAR", homeColor: "#e6e5df", awayColor: "#3976b9", status: "UPCOMING", markets: ["Real Madrid", "Draw", "Barcelona"], odds: ["1.82", "—", "2.02"], trend: "up" }
+  ,{ id: 7, sport: "Cricket", league: "T20 · DEMO FIXTURE", time: "Today · 18:00", home: "India", away: "Australia", homeCode: "IND", awayCode: "AUS", homeColor: "#3184c8", awayColor: "#d9bd45", status: "UPCOMING", markets: ["India", "Tie", "Australia"], odds: ["1.85", "15.00", "1.95"], trend: "steady" }
+  ,{ id: 8, sport: "Cricket", league: "ODI · DEMO FIXTURE", time: "Tomorrow · 14:00", home: "England", away: "South Africa", homeCode: "ENG", awayCode: "RSA", homeColor: "#3976b9", awayColor: "#d6b66b", status: "UPCOMING", markets: ["England", "Tie", "S. Africa"], odds: ["2.05", "18.00", "1.78"], trend: "down" }
+  ,{ id: 9, sport: "Tennis", league: "ATP · DEMO FIXTURE", time: "Today · 16:00", home: "Player A", away: "Player B", homeCode: "A", awayCode: "B", homeColor: "#b5c65b", awayColor: "#5a9bd8", status: "UPCOMING", markets: ["Player A", "Draw", "Player B"], odds: ["1.72", "—", "2.12"], trend: "up" }
+  ,{ id: 10, sport: "Tennis", league: "WTA · DEMO FIXTURE", time: "Tomorrow · 17:30", home: "Player C", away: "Player D", homeCode: "C", awayCode: "D", homeColor: "#e87875", awayColor: "#8c74c8", status: "UPCOMING", markets: ["Player C", "Draw", "Player D"], odds: ["1.90", "—", "1.90"], trend: "steady" }
+  ,{ id: 11, sport: "Rugby", league: "INTERNATIONAL · DEMO FIXTURE", time: "Tomorrow · 15:00", home: "Kenya", away: "Uganda", homeCode: "KEN", awayCode: "UGA", homeColor: "#d34d4d", awayColor: "#e6c34e", status: "UPCOMING", markets: ["Kenya", "Draw", "Uganda"], odds: ["1.95", "17.00", "1.85"], trend: "steady" }
 ];
 
 const sports = ["For you", "Football", "Basketball", "Tennis", "Cricket"];
@@ -93,7 +100,7 @@ export default function Home() {
           <button className="side-item"><Trophy size={17}/> Competitions</button>
           <div className="side-divider" />
           <div className="side-label">SPORTS</div>
-          {["Football", "Basketball", "Tennis", "Cricket", "Rugby"].map((s, i) => <button key={s} className="side-item"><span className="sport-icon">{["⚽","🏀","🎾","🏏","🏉"][i]}</span>{s}</button>)}
+          {["Football", "Basketball", "Tennis", "Cricket", "Rugby"].map((s, i) => <button key={s} onClick={() => { setSport(s); setActiveSection("sports"); }} className={sport === s ? "side-item active" : "side-item"}><span className="sport-icon">{["⚽","🏀","🎾","🏏","🏉"][i]}</span>{s}</button>)}
           <div className="side-card"><div className="side-card-icon"><ShieldCheck size={18}/></div><strong>Play smart.</strong><p>Keep your experience balanced. Set limits and take breaks.</p><a href="#responsible">Responsible play <ArrowRight size={13}/></a></div>
           <div className="side-foot">FBETS v1.0 <span>·</span> DEMO</div>
         </aside>
@@ -101,13 +108,13 @@ export default function Home() {
         <section className="content">
           <div className="welcome-row"><div><div className="eyebrow"><span className="eyebrow-line"/> YOUR MATCHDAY STARTS HERE</div><h1>Every moment.<br/><em>Every possibility.</em></h1><p className="welcome-copy">The action is better when you're in the moment.</p></div><div className="hero-orbit"><div className="orbit-ring ring-one"/><div className="orbit-ring ring-two"/><div className="orbit-ball">⚽</div><span className="orbit-tag">MATCHDAY<br/><b>IS ON</b></span></div></div>
 
-          <div className="sport-tabs">{sports.map(s => <button key={s} onClick={() => setSport(s)} className={sport === s ? "sport-tab active" : "sport-tab"}>{s}</button>)}</div>
+          <div className="sport-tabs" aria-label="Choose a sport">{sports.map(s => <button key={s} type="button" onClick={() => { setSport(s); setActiveSection("sports"); }} aria-pressed={sport === s} className={sport === s ? "sport-tab active" : "sport-tab"}>{s}</button>)}</div>
 
-          <div className="section-heading"><div><div className="eyebrow"><span className="live-dot"/> THE ACTION</div><h2>{activeTab === "Featured" ? "Featured matches" : activeTab}</h2></div><button className="view-all">View all <ArrowRight size={15}/></button></div>
+          <div className="section-heading"><div><div className="eyebrow"><span className="live-dot"/> THE ACTION</div><h2>{sport === "For you" ? (activeTab === "Featured" ? "Featured matches" : activeTab) : `${sport} matches`}</h2></div><button className="view-all">View all <ArrowRight size={15}/></button></div>
           <div className="match-filter">{["Featured", "Top leagues", "All matches"].map(t => <button key={t} onClick={() => setActiveTab(t)} className={activeTab === t ? "filter-active" : ""}>{t}</button>)}<span className="filter-spacer"/><span className="demo-odds"><span/> DEMO ODDS</span></div>
 
           <div className="match-list">
-            {matches.map(match => <article className="match-card" key={match.id}>
+            {matches.filter(match => sport === "For you" || match.sport === sport).map(match => <article className="match-card" key={match.id}>
               <div className="match-meta"><span>{match.league}</span><span className={match.status === "LIVE" ? "match-live" : "match-time"}>{match.status === "LIVE" && <i/>}{match.time}</span></div>
               <div className="match-main">
                 <div className="teams">
@@ -122,6 +129,7 @@ export default function Home() {
               </div>
               <div className="match-bottom"><span><Activity size={13}/> Match insights</span><span>+ 18 markets <ArrowRight size={12}/></span></div>
             </article>)}
+            {matches.filter(match => sport === "For you" || match.sport === sport).length === 0 && <div className="empty-slip"><strong>No {sport} demo fixtures yet</strong><p>Choose another sport to browse available demo match cards.</p></div>}
           </div>
           <div className="insight-strip"><div className="insight-icon"><Flame size={19}/></div><div><strong>Stay close to the action</strong><p>Explore match insights, form and head-to-head stats.</p></div><ArrowUpRight size={17}/></div>
           <footer id="responsible"><div className="footer-brand">FBETS<span>.</span></div><p>Entertainment-style sports demo. All fixtures and odds are illustrative.</p><div><ShieldCheck size={14}/> Play responsibly · Virtual stakes only</div></footer>
