@@ -94,7 +94,7 @@ export default function Home() {
       <div className="page-wrap">
         <aside className="sidebar">
           <div className="side-label">DISCOVER</div>
-          <button onClick={() => setActiveSection("sports")} className={activeSection === "sports" ? "side-item active" : "side-item"}><Sparkles size={17}/> For you</button>
+          <button onClick={() => { setSport("For you"); setActiveSection("sports"); }} className={activeSection === "sports" && sport === "For you" ? "side-item active" : "side-item"}><Sparkles size={17}/> For you</button>
           <button onClick={() => setActiveSection("casino")} className={activeSection === "casino" ? "side-item active" : "side-item"}><Dices size={17}/> Casino</button>
           <button className="side-item"><Activity size={17}/> Live matches <span className="side-count">12</span></button>
           <button className="side-item"><Trophy size={17}/> Competitions</button>
@@ -124,7 +124,7 @@ export default function Home() {
                 <div className="score-block">{match.score ? <><strong>{match.score}</strong><span>HALF TIME</span></> : <><strong className="versus">VS</strong><span>{match.time.split("·")[0].trim()}</span></>}</div>
                 <div className="odds-grid">{match.odds.map((odd, i) => {
                   const chosen = slip.some(x => x.match.id === match.id && x.pick === i);
-                  return <button key={i} onClick={() => togglePick(match, i)} className={chosen ? "odd selected-odd" : "odd"}><span>{match.markets[i]}</span><strong>{odd}</strong>{chosen && <Check size={12}/>}</button>;
+                  return <button key={i} disabled={odd === "—"} aria-label={odd === "—" ? `${match.markets[i]} not offered for this demo match` : `${match.markets[i]} odds ${odd}`} onClick={() => togglePick(match, i)} className={chosen ? "odd selected-odd" : "odd"}><span>{match.markets[i]}</span><strong>{odd}</strong>{chosen && <Check size={12}/>}</button>;
                 })}</div>
               </div>
               <div className="match-bottom"><span><Activity size={13}/> Match insights</span><span>+ 18 markets <ArrowRight size={12}/></span></div>
