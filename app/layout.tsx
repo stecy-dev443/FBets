@@ -5,8 +5,8 @@ import "./casino/casino.css";
 import "./flagship/midnight-gold.css";
 
 export const metadata: Metadata = {
-  title: "FBets — The sharpest live experience",
-  description: "A premium live sports experience built on trust. Interactive prototype with simulated markets and responsible-play controls.",
+  title: "FBets — The sharpest live action",
+  description: "The sharpest live action, in the most private room. Explore FBets sports and casino demos with simulated markets, virtual credits and responsible-play controls.",
   applicationName: "FBets"
 };
 
