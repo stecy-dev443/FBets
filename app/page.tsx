@@ -78,7 +78,7 @@ export default function Home() {
       <header className="topbar">
         <a className="brand" href="#" aria-label="FBets home"><span className="brand-mark">F</span><span>F<span className="brand-light">BETS</span></span><i>.</i></a>
         <nav className="main-nav">
-          {["Home", "Live", "Sports", "Competitions", "Casino", "Promotions"].map(item => <button key={item} onClick={() => { setActiveSection(item.toLowerCase() === "home" ? "sports" : item.toLowerCase()); setMobileSlip(false); }} className={((item === "Home" || item === "Sports") ? activeSection === "sports" : activeSection === item.toLowerCase()) ? "nav-link selected" : "nav-link"}>{item}{item === "Live" && <b className="live-dot" />}</button>)}
+          {["Home", "Live", "Sports", "Competitions", "Casino", "Promotions"].map(item => <button key={item} onClick={() => { if (item === "Home") setSport("For you"); setActiveSection(item.toLowerCase() === "home" ? "sports" : item.toLowerCase()); setMobileSlip(false); }} className={((item === "Home" || item === "Sports") ? activeSection === "sports" : activeSection === item.toLowerCase()) ? "nav-link selected" : "nav-link"}>{item}{item === "Live" && <b className="live-dot" />}</button>)}
         </nav>
         <div className="top-actions">
           <button className="icon-button search-trigger" aria-label="Search" onClick={() => setSearchOpen(!searchOpen)}><Search size={18} /></button>
