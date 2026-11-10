@@ -27,7 +27,7 @@
 .ambient-canvas:after{content:"";position:absolute;inset:0;background:linear-gradient(130deg,rgba(104,185,255,.07),transparent 36%,rgba(255,255,255,.025));opacity:.9}
 .ambient-canvas[data-mood="morning"]:after{background:radial-gradient(ellipse at 14% 0%,rgba(255,237,192,.19),transparent 42%),linear-gradient(130deg,rgba(118,196,255,.1),transparent 55%)}
 .ambient-canvas[data-mood="sunset"]:after{background:radial-gradient(ellipse at 88% 2%,rgba(255,153,105,.2),transparent 43%),linear-gradient(125deg,rgba(77,118,190,.12),transparent 60%)}
-.fb-root>*:not(.ambient-canvas),.lux-casino>*:not(.ambient-canvas){position:relative;z-index:1}
+.fb-root>*:not(.ambient-canvas):not(.ambient-switch),.lux-casino>*:not(.ambient-canvas):not(.ambient-switch){position:relative;z-index:1}
 .ambient-fang{position:absolute;width:44px;height:94px;background:linear-gradient(180deg,#fff,rgba(212,234,255,.38));filter:drop-shadow(0 0 16px rgba(221,242,255,.42));opacity:.7}
 .fang-a{top:0;left:4.5%;clip-path:polygon(0 0,100% 0,48% 100%,28% 70%)}
 .fang-b{top:0;right:4.5%;clip-path:polygon(0 0,100% 0,72% 70%,52% 100%)}
