@@ -39,3 +39,29 @@
 .practice-controls{padding:13px 0;border-top:1px solid rgba(226,184,87,.16)}.practice-controls label{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#c9c3b4}.practice-controls select{background:#232330;border:1px solid rgba(226,184,87,.3);color:#F6F1E7;border-radius:6px;padding:8px}.practice-controls p{font-size:11px;line-height:1.5;color:#E2B857;min-height:18px;margin:12px 0 0}
 .lux-game{min-width:0}.lux-poster{aspect-ratio:3/4}.poster-art{height:100%;min-height:0}.lux-game-foot{font-variant-numeric:tabular-nums}.lux-game:hover{transform:translateY(-3px);transition:transform .2s ease-out}
 @media(max-width:680px){.lux-mode-switch{flex-wrap:wrap;gap:7px}.lux-mode-switch small{width:100%;margin-left:0}.practice-bar span{font-size:7px}.slot-reels span{width:58px;height:67px}.cards-line{grid-template-columns:1fr 1fr}}
+
+/* FBets Club: futuristic navy, edge fangs and cursor-sensed daypart light */
+:root{--lux-bg:#061426;--lux-panel:#0A1D34;--lux-emerald:#102d45;--lux-gold:#dceeff;--lux-ivory:#f5f9ff;--lux-muted:#9cb0c7;--lux-line:rgba(210,235,255,.2)}
+.lux-casino{position:relative;isolation:isolate;background:radial-gradient(ellipse at 50% -15%,#173b60 0%,transparent 48%),linear-gradient(145deg,#061426,#0a1c32 54%,#061426);color:#f5f9ff}
+.lux-casino .lux-demo-ribbon{background:#0b2038;color:#d6eaff;border-bottom:1px solid #31516e}
+.lux-casino .lux-header{background:rgba(5,19,36,.9);border-color:#31516e}
+.lux-casino .lux-brand-mark{border-color:#d9efff;color:#f5f9ff}
+.lux-casino .lux-brand small,.lux-casino .lux-eyebrow,.lux-casino .lux-hero h1 em,.lux-casino .lux-lobby-heading h1 em,.lux-casino .lux-section h2 em,.lux-casino .lux-text-link,.lux-casino .jackpot-label,.lux-casino .lux-jackpot strong{color:#d9efff}
+.lux-casino .lux-button-gold{background:linear-gradient(115deg,#f5fbff,#b6d7f0);color:#061426!important;box-shadow:0 8px 28px #72bde622}
+.lux-casino .lux-hero:before{background:radial-gradient(ellipse at 72% 48%,#24618c66,transparent 40%),radial-gradient(ellipse at 18% 50%,#e2c18a22,transparent 55%)}
+.lux-casino .lux-category,.lux-casino .lux-game,.lux-casino .lux-table-card,.lux-casino .vip-step,.lux-casino .lux-promo{border-color:#31516e}
+.lux-casino .lux-jackpot,.lux-casino .lux-responsible{border-color:#6c91b3;background:linear-gradient(100deg,#102b46,#0a1c32 65%,#172d45)}
+.lux-casino .poster-art.gold,.lux-casino .lux-modal-art.gold{background:radial-gradient(circle at 50% 42%,#7da9c8,#244c6d 53%,#081525)}
+.lux-casino .poster-art.green,.lux-casino .lux-modal-art.green{background:radial-gradient(circle at 50% 42%,#4f8c8b,#17434b 53%,#07141d)}
+.lux-casino .poster-art.violet,.lux-casino .lux-modal-art.violet{background:radial-gradient(circle at 50% 42%,#7584b5,#283b60 53%,#081321)}
+.lux-casino .poster-art.red,.lux-casino .lux-modal-art.red{background:radial-gradient(circle at 50% 42%,#a46d80,#4b3049 53%,#0d111d)}
+.lux-casino .poster-art.blue,.lux-casino .lux-modal-art.blue{background:radial-gradient(circle at 50% 42%,#6ca8c8,#183d5a 53%,#081321)}
+.lux-casino .slot-machine,.lux-casino .roulette-room,.lux-casino .blackjack-room{background:radial-gradient(ellipse at 50% 0%,#245879,#0d2b47 72%)}
+.lux-casino .practice-bar{background:#102f48;border-color:#6c91b3}
+.lux-casino .practice-bar b{color:#eff8ff}
+.lux-casino .lux-live{color:#eaf4ff}
+.lux-casino .lux-live i{background:#69c9e9;box-shadow:0 0 10px #69c9e9}
+.lux-casino .lux-mobile-tabs{background:rgba(5,19,36,.96);border-color:#31516e}
+.lux-casino .lux-mobile-tabs a{color:#dceeff}
+.lux-casino .lux-mobile-tabs a svg{color:#dceeff}
+.lux-casino .lux-age{color:#eaf4ff;border-color:#7d9fbd}
