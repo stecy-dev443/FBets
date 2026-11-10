@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import {
   Activity, ArrowDownRight, ArrowRight, ArrowUpRight, Bell, Check,
   ChevronDown, CircleHelp, Clock3, Flame, Menu, Minus, Plus, Search,
-  ShieldCheck, Sparkles, Ticket, Trophy, Wallet, X, Dices, Gamepad2, Spade, CircleDollarSign
+  ShieldCheck, Sparkles, Ticket, Trophy, Wallet, X, Dices, Gamepad2, Spade, CircleDollarSign, UserRound
 } from "lucide-react";
 
 type Match = {
@@ -43,6 +43,10 @@ export default function Home() {
   const [slotResult, setSlotResult] = useState<string[]>(["🍒", "⭐", "🍋"]);
   const [slotMessage, setSlotMessage] = useState("Spin the reels using virtual credits.");
   const [slotBusy, setSlotBusy] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [profile, setProfile] = useState<{name:string;email:string}|null>(null);
 
   const potential = useMemo(() => {
     const total = slip.reduce((acc, item) => acc * Number(item.match.odds[item.pick]), 1);
@@ -82,14 +86,17 @@ export default function Home() {
         </nav>
         <div className="top-actions">
           <button className="icon-button search-trigger" aria-label="Search" onClick={() => setSearchOpen(!searchOpen)}><Search size={18} /></button>
-          <button className="icon-button" aria-label="Notifications"><Bell size={18} /></button>
+          <button className="icon-button" aria-label="Notifications" onClick={() => setNotificationsOpen(v => !v)}><Bell size={18} /></button>
           <button className="wallet-button"><Wallet size={16} /><span>Demo wallet</span><strong> KSh {demoBalance.toLocaleString("en-KE")}</strong></button>
-          <button className="avatar">S</button>
-          <button className="mobile-menu" aria-label="Menu"><Menu /></button>
+          <button className="avatar" aria-label="Open profile" onClick={() => setAccountOpen(true)}>{profile?.name?.slice(0,1).toUpperCase() || "S"}</button>
+          <button className="mobile-menu" aria-label="Menu" aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen(v => !v)}><Menu /></button>
         </div>
       </header>
 
       {searchOpen && <div className="search-panel"><Search size={17} /><input autoFocus placeholder="Search teams, leagues and matches…" /><button onClick={() => setSearchOpen(false)}><X size={17}/></button></div>}
+      {mobileMenuOpen && <div className="mobile-nav-panel"><div className="drawer-head"><strong>Explore FBets</strong><button aria-label="Close menu" onClick={() => setMobileMenuOpen(false)}><X/></button></div>{["Home","Live","Sports","Competitions","Casino","Promotions"].map(item=><button key={item} onClick={()=>{if(item==="Home")setSport("For you");setActiveSection(item.toLowerCase()==="home"?"sports":item.toLowerCase());setMobileMenuOpen(false);setMobileSlip(false);}}>{item}<ArrowRight size={15}/></button>)}<button className="mobile-account-link" onClick={()=>{setAccountOpen(true);setMobileMenuOpen(false);}}>My account <UserRound size={15}/></button></div>}
+      {notificationsOpen && <div className="notification-panel"><div className="drawer-head"><strong>Notifications</strong><button aria-label="Close notifications" onClick={()=>setNotificationsOpen(false)}><X/></button></div><div className="notification-item"><Bell size={16}/><div><strong>Welcome to FBets</strong><p>Your demo experience is ready. Explore sports, competitions and the arcade.</p><small>Just now</small></div></div><div className="notification-item"><ShieldCheck size={16}/><div><strong>Demo mode is active</strong><p>All balances, fixtures and odds are illustrative only.</p><small>Account notice</small></div></div></div>}
+      {accountOpen && <div className="game-modal-backdrop" onClick={()=>setAccountOpen(false)}><div className="game-modal account-modal" onClick={e=>e.stopPropagation()}><div className="drawer-head"><div><span className="eyebrow">FBETS ACCOUNT</span><h2>{profile ? "Your profile" : "Create your account"}</h2></div><button aria-label="Close account" onClick={()=>setAccountOpen(false)}><X/></button></div>{profile ? <div className="account-profile"><div className="profile-avatar">{profile.name.slice(0,1).toUpperCase()}</div><strong>{profile.name}</strong><span>{profile.email}</span><p>Demo profile for this browser session. Secure account registration is not connected yet.</p><button className="place-button" onClick={()=>setProfile(null)}>Sign out of demo profile</button></div> : <form className="account-form" onSubmit={e=>{e.preventDefault();const fd=new FormData(e.currentTarget);const name=String(fd.get("name")||"").trim();const email=String(fd.get("email")||"").trim();if(name&&email)setProfile({name,email});}}><label>Full name<input name="name" required minLength={2} placeholder="Your name"/></label><label>Email address<input name="email" type="email" required placeholder="you@example.com"/></label><label>Password<input name="password" type="password" minLength={8} required placeholder="At least 8 characters"/></label><button className="place-button" type="submit">Create demo profile <ArrowRight size={15}/></button><p className="slip-disclaimer">Demo profile only. Password is not saved or sent anywhere. Real authentication must be configured before launch.</p></form>}</div></div>}
 
       <div className="page-wrap">
         <aside className="sidebar">
@@ -120,6 +127,8 @@ export default function Home() {
           {activeSection === "live" && <>
             <div className="section-heading"><div><div className="eyebrow"><span className="live-dot"/> LIVE CENTRE</div><h2>Live matches</h2><p className="welcome-copy">Illustrative demo data only. A real-time sports feed is not connected yet.</p></div></div>
             <div className="match-list">{matches.filter(m=>m.status==="LIVE").map(m=><article className="match-card" key={m.id}><div className="match-meta"><span>{m.league}</span><span className="match-live">{m.time}</span></div><div className="match-main"><div className="teams"><div className="team"><strong>{m.home}</strong></div><div className="team"><strong>{m.away}</strong></div></div><div className="score-block"><strong>{m.score}</strong><span>DEMO SCORE</span></div><div className="odds-grid">{m.odds.map((o,i)=><button className="odd" key={i} onClick={()=>togglePick(m,i)}><span>{m.markets[i]}</span><strong>{o}</strong></button>)}</div></div></article>)}</div>
+            <div className="section-heading"><div><div className="eyebrow">UPCOMING</div><h2>More matches</h2></div></div>
+            <div className="match-list">{matches.filter(m=>m.status==="UPCOMING").map(m=><article className="match-card" key={m.id}><div className="match-meta"><span>{m.league}</span><span className="match-time">{m.time}</span></div><div className="match-main"><div className="teams"><div className="team"><strong>{m.home}</strong></div><div className="team"><strong>{m.away}</strong></div></div><div className="score-block"><strong className="versus">VS</strong><span>UPCOMING</span></div><div className="odds-grid">{m.odds.map((o,i)=><button className="odd" key={i} disabled={o==="—"} onClick={()=>togglePick(m,i)}><span>{m.markets[i]}</span><strong>{o}</strong></button>)}</div></div></article>)}</div>
             <div className="casino-note"><Activity size={18}/><div><strong>Live feed not connected</strong><p>Connect a sports-data provider for real-time scores, clocks and live odds.</p></div></div>
           </>}
           {activeSection === "competitions" && <>
