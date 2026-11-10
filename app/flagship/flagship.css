@@ -39,3 +39,39 @@
 .ambient-switch button.chosen{background:#eaf4ff;color:#061426;font-weight:700}
 @media(max-width:650px){.ambient-fang{width:25px;height:56px;opacity:.55}.ambient-switch{right:10px;bottom:78px}.ambient-switch>span{display:none}.ambient-switch button{padding:9px 10px;font-size:9px}}
 @media(prefers-reduced-motion:reduce){.ambient-canvas:before{transition:none}}
+
+
+/* MIDNIGHT GOLD identity */
+:root{--ink:#08090d;--graphite:#11131a;--surface:#191b24;--line:#3a3020;--lime:#e4bd63;--cyan:#f2d994;--amber:#d5a447;--text:#f7f2e8;--muted:#a59b89}
+.fb-root{background:radial-gradient(ellipse at 50% -20%,#302513 0%,transparent 42%),linear-gradient(180deg,#090a0f,#0c0d12 55%,#08090d);color:#f7f2e8}
+.fb-header{background:rgba(9,10,15,.96);border-color:#4b3b20}
+.brand-symbol,.brand-symbol span,.lime,.rail-link.chosen,.rail-link.chosen svg,.rail-bottom button,.text-link,.wallet-pill svg,.tool-btn i,.notice-pop svg,.slip-title svg,.slip-pick strong,.payout-row.total b,.prob-head b,.hero-odds button b,.odds-button b,.tabs .tab-on,.market-health b,.right-info svg{color:#e4bd63}
+.brand-symbol{color:#e4bd63}
+.fb-root button:focus-visible,.fb-root input:focus-visible,.fb-root summary:focus-visible{outline-color:#f2d994}
+.demo-ribbon{background:#1a160e;color:#e9d7aa;border-color:#5a4726}.demo-ribbon svg{color:#e4bd63}
+.desktop-nav button.active{border-color:#e4bd63}
+.wallet-pill,.slip-panel,.shelf-card,.match-row,.pitch-card,.timeline-card,.stats-card,.market-box{border-color:#493a22}
+.hero-panel{border-color:#69502a;background:radial-gradient(ellipse at 76% 46%,#4a371b 0,#211b14 32%,#15131a 62%,#101117 100%)}
+.hero-lights{background:radial-gradient(ellipse,#e4bd6320,transparent 62%)}
+.hero-copy h1 em{color:#e4bd63}
+.live-chip,.live-count,.demo-tag{color:#f2d994;background:#302514;border-color:#765a2a}
+.pulse,.live-chip i,.row-live i,.market-health i{background:#e4bd63;box-shadow:0 0 12px #e4bd6388}
+.lime-btn{background:linear-gradient(115deg,#f3d994,#c99b43);color:#171108!important;box-shadow:0 8px 25px #c99b4325}
+.hero-match{border-color:#69502a;background:linear-gradient(145deg,#282117ee,#14131aee)}
+.crest.blue{background:linear-gradient(140deg,#a67c35,#513817)}
+.prob-track i,.momentum-bar i{background:#e4bd63;box-shadow:0 0 12px #e4bd6366}
+.hero-odds button,.odds-button{border-color:#514126;background:#211d17}
+.hero-odds button:hover,.odds-button:hover,.selected-price{border-color:#e4bd63;background:#342a19}
+.rail-link.chosen{background:#292115}
+.rail-bottom{background:linear-gradient(145deg,#292114,#14131a);border-color:#594524}
+.shield-orb{background:#45351b;color:#f2d994}
+.slip-title span,.slip-mode .mode-on,.filter-scroll .filter-on,.onboard-options .filter-on{background:#382b17;color:#f2d994}
+.empty-icon{background:#302719;color:#e4bd63}
+.builder-card{border-color:#765a2a;background:#211a11}
+.builder-card button{background:#3a2c16;border-color:#8a672d;color:#f2d994}
+.match-centre-hero{background:radial-gradient(ellipse at 50% 0,#49351b,#17151a 70%);border-color:#594524}
+.pitch{filter:saturate(.72)}
+.event-row i.event-goal{background:#e4bd63;box-shadow:0 0 10px #e4bd6388}
+.cashout-dial{background:conic-gradient(#e4bd63 calc(var(--unused,68)*1%),#3a3021 0)}
+.lux-mode-switch{border-color:#765a2a}
+@media(prefers-reduced-motion:reduce){.fb-root *,.fb-root *:before,.fb-root *:after{scroll-behavior:auto}}
