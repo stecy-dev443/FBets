@@ -73,3 +73,37 @@
 .insight-chart svg{width:100%;height:135px;overflow:visible}.mix-legend{display:flex;gap:14px;flex-wrap:wrap}.mix-legend span{display:flex;align-items:center;gap:5px;font-size:8px;color:#adc3d6}.mix-legend i{width:7px;height:7px;border-radius:50%;background:#b9e5ff}
 @media(max-width:850px){.insights-grid{grid-template-columns:1fr 1fr}.insight-chart{grid-column:span 2}}
 @media(max-width:580px){.lux-insights{padding:18px;margin-top:30px}.insights-heading{align-items:flex-start;flex-direction:column}.insights-grid{grid-template-columns:1fr}.insight-chart{grid-column:auto}.rtp-row{grid-template-columns:100px 1fr 40px}}
+
+
+/* MIDNIGHT GOLD identity — casino */
+:root{--lux-bg:#08090d;--lux-panel:#15141a;--lux-emerald:#282016;--lux-gold:#e4bd63;--lux-ivory:#f7f2e8;--lux-muted:#a59b89;--lux-line:rgba(228,189,99,.24)}
+.lux-casino{background:radial-gradient(ellipse at 50% -15%,#3a2b16 0%,transparent 47%),linear-gradient(145deg,#08090d,#121116 54%,#08090d);color:#f7f2e8}
+.lux-casino .lux-demo-ribbon{background:#1a160e;color:#ead8ae;border-color:#6b5127}
+.lux-casino .lux-header{background:rgba(9,10,15,.93);border-color:#6b5127}
+.lux-casino .lux-brand-mark{border-color:#e4bd63;color:#f7f2e8}
+.lux-casino .lux-brand small,.lux-casino .lux-eyebrow,.lux-casino .lux-hero h1 em,.lux-casino .lux-lobby-heading h1 em,.lux-casino .lux-section h2 em,.lux-casino .lux-text-link,.lux-casino .jackpot-label,.lux-casino .lux-jackpot strong{color:#e4bd63}
+.lux-casino .lux-button-gold{background:linear-gradient(115deg,#f3d994,#c99b43);color:#171108!important;box-shadow:0 8px 28px #c99b4330}
+.lux-casino .lux-hero:before{background:radial-gradient(ellipse at 72% 48%,#9c702b55,transparent 40%),radial-gradient(ellipse at 18% 50%,#e2c18a18,transparent 55%)}
+.lux-casino .lux-category,.lux-casino .lux-game,.lux-casino .lux-table-card,.lux-casino .vip-step,.lux-casino .lux-promo{border-color:#594524}
+.lux-casino .lux-jackpot,.lux-casino .lux-responsible{border-color:#765a2a;background:linear-gradient(100deg,#292014,#121116 65%,#211a11)}
+.lux-casino .poster-art.gold,.lux-casino .lux-modal-art.gold{background:radial-gradient(circle at 50% 42%,#c99b43,#59401b 53%,#100e0b)}
+.lux-casino .poster-art.green,.lux-casino .lux-modal-art.green{background:radial-gradient(circle at 50% 42%,#8d7547,#3e321c 53%,#100e0b)}
+.lux-casino .poster-art.violet,.lux-casino .lux-modal-art.violet{background:radial-gradient(circle at 50% 42%,#8a7652,#45331c 53%,#100e0b)}
+.lux-casino .poster-art.red,.lux-casino .lux-modal-art.red{background:radial-gradient(circle at 50% 42%,#a16b4d,#4b2c20 53%,#100e0b)}
+.lux-casino .poster-art.blue,.lux-casino .lux-modal-art.blue{background:radial-gradient(circle at 50% 42%,#a58a52,#4a371d 53%,#100e0b)}
+.lux-casino .slot-machine,.lux-casino .roulette-room,.lux-casino .blackjack-room{background:radial-gradient(ellipse at 50% 0%,#55401e,#1c1912 72%)}
+.lux-casino .practice-bar{background:#282015;border-color:#765a2a}
+.lux-casino .practice-bar b{color:#f3d994}
+.lux-casino .lux-live{color:#f2d994}
+.lux-casino .lux-live i{background:#e4bd63;box-shadow:0 0 10px #e4bd63}
+.lux-casino .lux-mobile-tabs{background:rgba(9,10,15,.97);border-color:#594524}
+.lux-casino .lux-mobile-tabs a,.lux-casino .lux-mobile-tabs a svg{color:#e4bd63}
+.lux-casino .lux-age{color:#f2d994;border-color:#8a672d}
+.lux-insights{border-color:#765a2a;background:linear-gradient(135deg,rgba(54,40,20,.8),rgba(15,14,17,.92))}
+.insights-heading h2 em{color:#e4bd63}
+.insights-badge{color:#f2d994;border-color:#a47b38}
+.insight-panel{border-color:#765a2a;background:rgba(14,12,9,.58)}
+.insight-top span,.insight-top b,.rtp-row>b{color:#f2d994}
+.rtp-row>div i{background:linear-gradient(90deg,#b98936,#f3d994)}
+.vol-low i:nth-child(-n+3){background:#c7a45f}.vol-mid i:nth-child(-n+5){background:#d7b66f}.vol-high i:nth-child(-n+8){background:#f0d18a}
+.mix-legend i{background:#e4bd63}
