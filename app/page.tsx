@@ -29,14 +29,37 @@ export default function Home() {
   const [slip, setSlip] = useState<{ match: Match; pick: number }[]>([]);
   const [stake, setStake] = useState("100");
   const [mobileSlip, setMobileSlip] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);\n  const [activeSection, setActiveSection] = useState("sports");\n  const [demoBalance, setDemoBalance] = useState(2500);\n  const [activeGame, setActiveGame] = useState<string | null>(null);\n  const [slotResult, setSlotResult] = useState<string[]>(["🍒", "⭐", "🍋"]);\n  const [slotMessage, setSlotMessage] = useState("Spin the reels using virtual credits.");\n  const [slotBusy, setSlotBusy] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("sports");
+  const [demoBalance, setDemoBalance] = useState(2500);
+  const [activeGame, setActiveGame] = useState<string | null>(null);
+  const [slotResult, setSlotResult] = useState<string[]>(["🍒", "⭐", "🍋"]);
+  const [slotMessage, setSlotMessage] = useState("Spin the reels using virtual credits.");
+  const [slotBusy, setSlotBusy] = useState(false);
 
   const potential = useMemo(() => {
     const total = slip.reduce((acc, item) => acc * Number(item.match.odds[item.pick]), 1);
     return slip.length ? (total * Math.max(0, Number(stake) || 0)).toFixed(2) : "0.00";
   }, [slip, stake]);
 
-  function spinSlots() {\n    const cost = 50;\n    if (demoBalance < cost || slotBusy) { setSlotMessage("Not enough demo credits for another spin."); return; }\n    setDemoBalance(value => value - cost);\n    setSlotBusy(true);\n    setSlotMessage("The reels are spinning…");\n    window.setTimeout(() => {\n      const symbols = ["🍒", "🍋", "⭐", "🔔", "💎", "7️⃣"];\n      const result = Array.from({length: 3}, () => symbols[Math.floor(Math.random() * symbols.length)]);\n      setSlotResult(result);\n      if (result.every(x => x === result[0])) { setDemoBalance(value => value + 500); setSlotMessage("JACKPOT! +KSh 500 demo credits"); }\n      else if (result[0] === result[1] || result[1] === result[2] || result[0] === result[2]) { setDemoBalance(value => value + 100); setSlotMessage("Nice match! +KSh 100 demo credits"); }\n      else setSlotMessage("No match this time. Try another demo spin.");\n      setSlotBusy(false);\n    }, 650);\n  }\n\n  function togglePick(match: Match, pick: number) {
+  function spinSlots() {
+    const cost = 50;
+    if (demoBalance < cost || slotBusy) { setSlotMessage("Not enough demo credits for another spin."); return; }
+    setDemoBalance(value => value - cost);
+    setSlotBusy(true);
+    setSlotMessage("The reels are spinning…");
+    window.setTimeout(() => {
+      const symbols = ["🍒", "🍋", "⭐", "🔔", "💎", "7️⃣"];
+      const result = Array.from({length: 3}, () => symbols[Math.floor(Math.random() * symbols.length)]);
+      setSlotResult(result);
+      if (result.every(x => x === result[0])) { setDemoBalance(value => value + 500); setSlotMessage("JACKPOT! +KSh 500 demo credits"); }
+      else if (result[0] === result[1] || result[1] === result[2] || result[0] === result[2]) { setDemoBalance(value => value + 100); setSlotMessage("Nice match! +KSh 100 demo credits"); }
+      else setSlotMessage("No match this time. Try another demo spin.");
+      setSlotBusy(false);
+    }, 650);
+  }
+
+  function togglePick(match: Match, pick: number) {
     setSlip(current => current.some(x => x.match.id === match.id && x.pick === pick)
       ? current.filter(x => x.match.id !== match.id)
       : [...current.filter(x => x.match.id !== match.id), { match, pick }]);
@@ -64,7 +87,8 @@ export default function Home() {
       <div className="page-wrap">
         <aside className="sidebar">
           <div className="side-label">DISCOVER</div>
-          <button onClick={() => setActiveSection("sports")} className={activeSection === "sports" ? "side-item active" : "side-item"}><Sparkles size={17}/> For you</button>\n          <button onClick={() => setActiveSection("casino")} className={activeSection === "casino" ? "side-item active" : "side-item"}><Dices size={17}/> Casino</button>
+          <button onClick={() => setActiveSection("sports")} className={activeSection === "sports" ? "side-item active" : "side-item"}><Sparkles size={17}/> For you</button>
+          <button onClick={() => setActiveSection("casino")} className={activeSection === "casino" ? "side-item active" : "side-item"}><Dices size={17}/> Casino</button>
           <button className="side-item"><Activity size={17}/> Live matches <span className="side-count">12</span></button>
           <button className="side-item"><Trophy size={17}/> Competitions</button>
           <div className="side-divider" />
@@ -114,7 +138,8 @@ export default function Home() {
           <div className="mini-promo"><div className="promo-spark"><Sparkles size={17}/></div><span>THE FBETS EXPERIENCE</span><strong>Made for the<br/><em>love of the game.</em></strong><div className="promo-lines"/></div>
         </aside>
       </div>
-      {activeGame && <div className="game-modal-backdrop" onClick={() => setActiveGame(null)}><div className="game-modal" onClick={e => e.stopPropagation()}><div className="drawer-head"><div><span className="eyebrow">FBETS DEMO ARCADE</span><h2>{activeGame}</h2></div><button onClick={() => setActiveGame(null)} aria-label="Close game"><X/></button></div>{activeGame === "Lucky Sevens" ? <><div className="slot-reels">{slotResult.map((symbol,i)=><span key={i}>{symbol}</span>)}</div><p className="slot-message">{slotMessage}</p><button className="place-button" disabled={slotBusy || demoBalance < 50} onClick={spinSlots}>{slotBusy ? "Spinning…" : "Spin · 50 demo credits"}</button></> : <div className="game-preview"><div>{activeGame === "Roulette Lounge" ? "🎡" : activeGame === "Blackjack 21" ? "🂡" : "🎯"}</div><strong>Coming to the demo lounge</strong><p>This game preview is not playable yet. Your demo credits are safe.</p></div>}<p className="slip-disclaimer">Virtual credits only · No real-money play or prizes</p></div></div>}\n      <button className="mobile-slip" onClick={() => setMobileSlip(!mobileSlip)}><Ticket size={17}/> Bet slip <b>{slip.length}</b><span>Open <ArrowUpRight size={14}/></span></button>
+      {activeGame && <div className="game-modal-backdrop" onClick={() => setActiveGame(null)}><div className="game-modal" onClick={e => e.stopPropagation()}><div className="drawer-head"><div><span className="eyebrow">FBETS DEMO ARCADE</span><h2>{activeGame}</h2></div><button onClick={() => setActiveGame(null)} aria-label="Close game"><X/></button></div>{activeGame === "Lucky Sevens" ? <><div className="slot-reels">{slotResult.map((symbol,i)=><span key={i}>{symbol}</span>)}</div><p className="slot-message">{slotMessage}</p><button className="place-button" disabled={slotBusy || demoBalance < 50} onClick={spinSlots}>{slotBusy ? "Spinning…" : "Spin · 50 demo credits"}</button></> : <div className="game-preview"><div>{activeGame === "Roulette Lounge" ? "🎡" : activeGame === "Blackjack 21" ? "🂡" : "🎯"}</div><strong>Coming to the demo lounge</strong><p>This game preview is not playable yet. Your demo credits are safe.</p></div>}<p className="slip-disclaimer">Virtual credits only · No real-money play or prizes</p></div></div>}
+      <button className="mobile-slip" onClick={() => setMobileSlip(!mobileSlip)}><Ticket size={17}/> Bet slip <b>{slip.length}</b><span>Open <ArrowUpRight size={14}/></span></button>
       {mobileSlip && <div className="mobile-slip-drawer"><div className="drawer-head"><strong>Bet slip · {slip.length}</strong><button onClick={() => setMobileSlip(false)}><X/></button></div><p>Selections are stored locally for this demo. Use the slip panel on desktop to review the potential return.</p>{slip.map(x=><div className="drawer-pick" key={x.match.id}>{x.match.home} vs {x.match.away} — {x.match.markets[x.pick]} <b>{x.match.odds[x.pick]}</b></div>)}</div>}
     </main>
   );
