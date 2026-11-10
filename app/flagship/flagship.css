@@ -10,3 +10,32 @@
 .casino-rail-link{color:#E2B857!important;text-decoration:none!important;border:1px solid rgba(226,184,87,.18);background:rgba(226,184,87,.05);margin-bottom:14px}.casino-rail-link svg{color:#E2B857!important}
 .mobile-casino-link{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;margin:8px 12px;background:#1e1b14;border:1px solid rgba(226,184,87,.35);border-radius:9px;color:#E2B857;text-decoration:none;font-weight:700}
 @media(max-width:1050px){.fb-header{gap:16px;padding:0 18px}.desktop-nav{gap:2px}.desktop-nav button,.casino-nav-link{padding:0 9px;font-size:12px}}
+
+/* FUTURE NAVY / cursor-sensed atmosphere */
+:root{--ink:#061426;--graphite:#0A1D34;--surface:#102844;--line:#24415E;--text:#F5F9FF;--muted:#9CB0C7;--lime:#EAF4FF;--cyan:#66D9FF;--amber:#E8B66C;--cursor-x:50vw;--cursor-y:40vh}
+.fb-root{position:relative;isolation:isolate;background:linear-gradient(145deg,#061426,#081a30 54%,#061426)}
+.fb-root .demo-ribbon{background:#0b2038;border-color:#294765;color:#d8e8f8}
+.fb-root .fb-header{background:rgba(5,19,36,.9);border-color:#24415e}
+.fb-root .brand-symbol,.fb-root .lime{color:#eaf4ff}
+.fb-root .hero-panel,.fb-root .shelf-card,.fb-root .match-card,.fb-root .match-centre-hero,.fb-root .pitch-card,.fb-root .timeline-card,.fb-root .stats-card,.fb-root .market-box,.fb-root .cashout-card{border-color:#31516e}
+.fb-root .hero-panel{background:linear-gradient(115deg,#102d4a,#0a1e35 65%,#102844)}
+.fb-root .lime-btn{background:linear-gradient(110deg,#f5fbff,#b9d7ee);color:#061426}
+.fb-root .desktop-nav button.active,.fb-root .rail-link.chosen{color:#fff;border-color:#9edcff}
+.fb-root button:focus-visible,.fb-root input:focus-visible{outline-color:#fff}
+.ambient-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;isolation:isolate}
+.ambient-canvas:before{content:"";position:absolute;inset:0;background:radial-gradient(440px circle at var(--cursor-x) var(--cursor-y),rgba(117,203,255,.18),transparent 68%);mix-blend-mode:screen;transition:background .12s ease-out}
+.ambient-canvas:after{content:"";position:absolute;inset:0;background:linear-gradient(130deg,rgba(104,185,255,.07),transparent 36%,rgba(255,255,255,.025));opacity:.9}
+.ambient-canvas[data-mood="morning"]:after{background:radial-gradient(ellipse at 14% 0%,rgba(255,237,192,.19),transparent 42%),linear-gradient(130deg,rgba(118,196,255,.1),transparent 55%)}
+.ambient-canvas[data-mood="sunset"]:after{background:radial-gradient(ellipse at 88% 2%,rgba(255,153,105,.2),transparent 43%),linear-gradient(125deg,rgba(77,118,190,.12),transparent 60%)}
+.fb-root>*:not(.ambient-canvas),.lux-casino>*:not(.ambient-canvas){position:relative;z-index:1}
+.ambient-fang{position:absolute;width:44px;height:94px;background:linear-gradient(180deg,#fff,rgba(212,234,255,.38));filter:drop-shadow(0 0 16px rgba(221,242,255,.42));opacity:.7}
+.fang-a{top:0;left:4.5%;clip-path:polygon(0 0,100% 0,48% 100%,28% 70%)}
+.fang-b{top:0;right:4.5%;clip-path:polygon(0 0,100% 0,72% 70%,52% 100%)}
+.fang-c{bottom:0;left:4.5%;clip-path:polygon(28% 0,48% 30%,100% 100%,0 100%)}
+.fang-d{bottom:0;right:4.5%;clip-path:polygon(52% 30%,72% 0,100% 100%,0 100%)}
+.ambient-switch{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;align-items:center;gap:5px;padding:6px;background:rgba(5,19,36,.88);border:1px solid rgba(211,234,255,.3);border-radius:999px;box-shadow:0 10px 34px #0006;backdrop-filter:blur(18px)}
+.ambient-switch>span{display:flex;align-items:center;gap:5px;padding:0 8px;color:#b6cce2;font:8px var(--mono);letter-spacing:.08em}
+.ambient-switch button{display:flex;align-items:center;gap:5px;padding:8px 10px;border:0;border-radius:999px;background:transparent;color:#b5c5d8;font-size:10px}
+.ambient-switch button.chosen{background:#eaf4ff;color:#061426;font-weight:700}
+@media(max-width:650px){.ambient-fang{width:25px;height:56px;opacity:.55}.ambient-switch{right:10px;bottom:78px}.ambient-switch>span{display:none}.ambient-switch button{padding:9px 10px;font-size:9px}}
+@media(prefers-reduced-motion:reduce){.ambient-canvas:before{transition:none}}
